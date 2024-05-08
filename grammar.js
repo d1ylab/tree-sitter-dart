@@ -2815,19 +2815,19 @@ module.exports = grammar({
         // _documentation_line_comment: $ => token(seq('///', /.*/)),
 
         comment: $ => choice(
-            $._block_comment,
+            // $._block_comment,
             seq('//', /([^/\n].*)?/),
             seq(
                 '/*',
-                /[^*]*\*+([^/*][^*]*\*+)*/,
-                '/'
+                $._block_comment,
+                '*/'
             )
         ),
         //added nesting comments.
         documentation_comment: $ =>
             choice(
-                $._documentation_block_comment,
-                seq('///', /.*/),
+                // $._documentation_block_comment,
+                seq('///', $._documentation_block_comment),
             )
         ,
     }

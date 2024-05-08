@@ -12066,10 +12066,6 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_block_comment"
-        },
-        {
           "type": "SEQ",
           "members": [
             {
@@ -12090,12 +12086,12 @@
               "value": "/*"
             },
             {
-              "type": "PATTERN",
-              "value": "[^*]*\\*+([^/*][^*]*\\*+)*"
+              "type": "SYMBOL",
+              "name": "_block_comment"
             },
             {
               "type": "STRING",
-              "value": "/"
+              "value": "*/"
             }
           ]
         }
@@ -12105,10 +12101,6 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_documentation_block_comment"
-        },
-        {
           "type": "SEQ",
           "members": [
             {
@@ -12116,8 +12108,8 @@
               "value": "///"
             },
             {
-              "type": "PATTERN",
-              "value": ".*"
+              "type": "SYMBOL",
+              "name": "_documentation_block_comment"
             }
           ]
         }
@@ -12457,3 +12449,4 @@
     "_literal"
   ]
 }
+
